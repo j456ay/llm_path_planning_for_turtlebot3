@@ -1,1 +1,40 @@
-
+llm_path_planner:
+  ros__parameters:
+    # Ollama settings
+    ollama_host: "localhost"
+    ollama_port: 11434
+    ollama_model: "llama3.1:8b"  # 사용할 LLM 모델
+    
+    # Path planning settings
+    num_candidates: 5  # 후보 경로 개수
+    robot_radius: 0.2  # TurtleBot3 반경 (미터)
+    safety_margin: 0.1  # 안전 여유 거리 (미터)
+    
+    # Map processing settings
+    downsample_factor: 4  # 맵 다운샘플링 비율 (1/4 해상도)
+    occupied_threshold: 0.65  # occupied cell 임계값
+    free_threshold: 0.25  # free cell 임계값
+    
+    # Path evaluation weights
+    weights:
+      collision_penalty: 1000.0  # 충돌 페널티
+      path_length: 1.0  # 경로 길이 가중치
+      smoothness: 0.5  # 경로 부드러움 가중치
+      clearance: 2.0  # 장애물 클리어런스 가중치
+    
+    # Visualization settings
+    candidate_path_colors:
+      - [1.0, 0.0, 0.0]  # Red
+      - [0.0, 1.0, 0.0]  # Green
+      - [0.0, 0.0, 1.0]  # Blue
+      - [1.0, 1.0, 0.0]  # Yellow
+      - [1.0, 0.0, 1.0]  # Magenta
+    selected_path_color: [0.0, 1.0, 1.0]  # Cyan
+    
+    # Topic names
+    topics:
+      map_topic: "/map"
+      amcl_pose_topic: "/amcl_pose"
+      goal_pose_topic: "/goal_pose"
+      candidate_paths_topic: "/candidate_paths"
+      selected_path_topic: "/selected_path"
