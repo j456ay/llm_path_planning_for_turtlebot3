@@ -200,19 +200,3 @@ ros2 topic echo /selected_path
 # 노드 로그 확인
 ros2 launch llm_path_planning llm_path_planning_launch.py --ros-args --log-level DEBUG
 ```
-
-## 확장 계획
-
-- [ ] 동적 장애물 감지 (YOLO 기반 사람 인식)
-- [ ] 더 정교한 경로 평가 알고리즘
-- [ ] 다양한 LLM 모델 지원
-- [ ] 실시간 경로 재계획
-- [ ] 사용자 선호도 학습
-
-## 기여
-
-이 패키지는 연구 목적으로 개발되었습니다. 이슈나 개선사항이 있으시면 언제든 연락해 주세요.
-
-## 라이선스
-
-Apache 2.0 License
